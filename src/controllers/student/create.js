@@ -4,13 +4,6 @@ import jwt from "jsonwebtoken";
 
 const create = async (req, res) => {
     try {
-        const token = req.headers.authorization?.split(" ")[1]; //moiz.split() ["m" , "o" , i]
-        console.log(token);
-        if (!token) {
-            return res.status(400).json({ message: "Login is required.", status: 400 });
-        }
-
-        jwt.verify(token, JWT_SECRET);
         const { username, age, course, email } = req.body;
         // if (!username) {
         //     return res.status(400).json({ message: "Username is required", status: 400 });
